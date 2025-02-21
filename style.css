@@ -91,3 +91,9 @@ button:hover {
     padding: 10px;
     text-align: center;
 }
+
+/* New CSS for selected days */
+.selected {
+    background-color: #d4edda;
+    /* Change this color as needed */
+}

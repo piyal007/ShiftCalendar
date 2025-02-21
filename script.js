@@ -39,6 +39,7 @@ function generateShiftCalendar(year, month) {
         dayDiv.textContent = day;
 
         let currentDate = new Date(year, month, day);
+        let shift = currentShift;
 
         // Determine the shift based on the day of the week
         if (currentDate.getDay() === 5) { // If it's Friday
@@ -51,6 +52,18 @@ function generateShiftCalendar(year, month) {
         shiftDiv.className = `shift ${currentShift}`;
         shiftDiv.textContent = currentShift;
         dayDiv.appendChild(shiftDiv);
+
+        // Check if this day is selected
+        if (currentDate.getDay() === 5 && isSelected(`${year}-${month}-${day}`)) {
+            dayDiv.classList.add("selected");
+        }
+
+        // Add click event to toggle selection for Fridays
+        if (currentDate.getDay() === 5) {
+            dayDiv.addEventListener("click", () => {
+                toggleSelection(`${year}-${month}-${day}`, dayDiv);
+            });
+        }
 
         calendarDiv.appendChild(dayDiv);
     }
@@ -67,6 +80,25 @@ function changeMonth(step) {
         currentYear--; // Decrement the year
     }
     generateShiftCalendar(currentYear, currentMonth); // Regenerate the calendar
+}
+
+// Function to check if a date is selected
+function isSelected(date) {
+    const selectedDates = JSON.parse(localStorage.getItem("selectedFridays") || "[]");
+    return selectedDates.includes(date);
+}
+
+// Function to toggle the selection of a date
+function toggleSelection(date, dayDiv) {
+    let selectedDates = JSON.parse(localStorage.getItem("selectedFridays") || "[]");
+    if (selectedDates.includes(date)) {
+        selectedDates = selectedDates.filter(d => d !== date);
+        dayDiv.classList.remove("selected");
+    } else {
+        selectedDates.push(date);
+        dayDiv.classList.add("selected");
+    }
+    localStorage.setItem("selectedFridays", JSON.stringify(selectedDates));
 }
 
 // Show current month
