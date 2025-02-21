@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Calendar</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+
+<body>
+
+    <h2>Shift Calendar</h2>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button onclick="changeMonth(-1)">◀ Prev</button>
+            <h3 id="monthYear"></h3>
+            <button onclick="changeMonth(1)">Next ▶</button>
+        </div>
+        <div class="calendar" id="shiftCalendar"></div>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+</body>
+
+</html>

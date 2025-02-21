@@ -1,0 +1,93 @@
+body {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+.calendar-container {
+    display: inline-block;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #555;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 420px;
+    margin: auto;
+}
+
+.day {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 30px;
+    text-align: left;
+    background-color: #fff;
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 5px;
+}
+
+.shift {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: white;
+}
+
+.A {
+    background: #4CAF50;
+    /* Green for A Shift */
+}
+
+.B {
+    background: #FF5722;
+    /* Orange for B Shift */
+}
+
+.day-name {
+    font-weight: bold;
+    background: #ddd;
+    padding: 10px;
+    text-align: center;
+}
